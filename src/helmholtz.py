@@ -126,7 +126,7 @@ def compute_capacitance_matrices(helmholtz_dstI, bound_xids, bound_yids):
     for l in range(nl):
         cap_matrices[l] = torch.linalg.inv(inv_cap_matrices[l])
 
-    return cap_matrices.to(helmholtz_dstI.device)
+    return cap_matrices.to(helmholtz_dstI.device).type(helmholtz_dstI.dtype)
 
 
 def solve_helmholtz_dstI_cmm(rhs, helmholtz_dstI,
